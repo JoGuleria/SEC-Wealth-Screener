@@ -1,4 +1,4 @@
-\# SEC Wealth Screener
+# SEC Wealth Screener
 
 
 
@@ -10,7 +10,7 @@ The tool processes SEC Form 3, Form 4, and Form 5 insider transaction data, clas
 
 
 
-\## Purpose
+## Purpose
 
 
 
@@ -18,51 +18,51 @@ The goal of this project is to build a lightweight wealth screening workflow usi
 
 
 
-This project does \*\*not\*\* estimate total net worth. Instead, it identifies people and entities with visible public-equity activity that may indicate financial capacity.
+This project does **not** estimate total net worth. Instead, it identifies people and entities with visible public-equity activity that may indicate financial capacity.
 
 
 
-\## Features
+## Features
 
 
 
-\* Parses SEC insider transaction data
+* Parses SEC insider transaction data
 
-\* Extracts reporting owners, companies, tickers, and transaction details
+* Extracts reporting owners, companies, tickers, and transaction details
 
-\* Calculates reported transaction values
+* Calculates reported transaction values
 
-\* Separates individuals from entities, trusts, funds, and holding companies
+* Separates individuals from entities, trusts, funds, and holding companies
 
-\* Classifies transaction types such as sales, purchases, grants, gifts, and option exercises
+* Classifies transaction types such as sales, purchases, grants, gifts, and option exercises
 
-\* Creates a public-equity capacity signal score
+* Creates a public-equity capacity signal score
 
-\* Assigns capacity tiers
+* Assigns capacity tiers
 
-\* Explains why each record surfaced
+* Explains why each record surfaced
 
-\* Provides a Streamlit dashboard for filtering and review
-
-
-
-\## Tech Stack
+* Provides a Streamlit dashboard for filtering and review
 
 
 
-\* Python
-
-\* Pandas
-
-\* NumPy
-
-\* Streamlit
-
-\* SEC Form 3/4/5 Insider Transactions Data
+## Tech Stack
 
 
 
-\## Project Structure
+* Python
+
+* Pandas
+
+* NumPy
+
+* Streamlit
+
+* SEC Form 3/4/5 Insider Transactions Data
+
+
+
+## Project Structure
 
 
 
@@ -82,7 +82,7 @@ SEC-Wealth-Screener/
 
 ├── src/
 
-│   └── build\_scores.py
+│   └── build_scores.py
 
 │
 
@@ -92,95 +92,95 @@ SEC-Wealth-Screener/
 
 &#x20;   └── processed/
 
-&#x20;       └── sec\_capacity\_scores.csv
+&#x20;       └── sec_capacity_scores.csv
 
 ```
 
 
 
-\## How It Works
+## How It Works
 
 
 
-1\. SEC insider transaction data is downloaded as a quarterly ZIP file.
+1. SEC insider transaction data is downloaded as a quarterly ZIP file.
 
-2\. The pipeline reads key SEC files:
+2. The pipeline reads key SEC files:
 
 
 
-&#x20;  \* `SUBMISSION.tsv`
+&#x20;  * `SUBMISSION.tsv`
 
-&#x20;  \* `REPORTINGOWNER.tsv`
+&#x20;  * `REPORTINGOWNER.tsv`
 
-&#x20;  \* `NONDERIV\_TRANS.tsv`
+&#x20;  * `NONDERIV_TRANS.tsv`
 
-3\. The data is merged using accession numbers.
+3. The data is merged using accession numbers.
 
-4\. Transaction value is calculated as:
+4. Transaction value is calculated as:
 
 
 
 ```text
 
-transaction\_value = trans\_shares × trans\_pricepershare
+transaction_value = trans_shares × trans_pricepershare
 
 ```
 
 
 
-5\. Reporting owners are classified as either:
+5. Reporting owners are classified as either:
 
 
 
-&#x20;  \* Individual
+&#x20;  * Individual
 
-&#x20;  \* Entity
-
-
-
-6\. Transaction codes are grouped into readable categories:
+&#x20;  * Entity
 
 
 
-&#x20;  \* Open Market Purchase
-
-&#x20;  \* Open Market Sale
-
-&#x20;  \* Grant/Award
-
-&#x20;  \* Option Exercise
-
-&#x20;  \* Gift
-
-&#x20;  \* Tax/Withholding
-
-&#x20;  \* Other
+6. Transaction codes are grouped into readable categories:
 
 
 
-7\. A capacity signal score is created using:
+&#x20;  * Open Market Purchase
+
+&#x20;  * Open Market Sale
+
+&#x20;  * Grant/Award
+
+&#x20;  * Option Exercise
+
+&#x20;  * Gift
+
+&#x20;  * Tax/Withholding
+
+&#x20;  * Other
 
 
 
-&#x20;  \* Total reported transaction value
-
-&#x20;  \* Open-market transaction value
-
-&#x20;  \* Largest transaction value
-
-&#x20;  \* Filing activity
-
-&#x20;  \* Role strength
-
-&#x20;  \* Owner type
+7. A capacity signal score is created using:
 
 
 
-8\. The final results are displayed in a Streamlit dashboard.
+&#x20;  * Total reported transaction value
+
+&#x20;  * Open-market transaction value
+
+&#x20;  * Largest transaction value
+
+&#x20;  * Filing activity
+
+&#x20;  * Role strength
+
+&#x20;  * Owner type
 
 
 
-\## Running the Project Locally
+8. The final results are displayed in a Streamlit dashboard.
+
+
+
+## Running the Project Locally
 
 
 
@@ -202,7 +202,7 @@ Build the scored dataset:
 
 ```bash
 
-python src/build\_scores.py
+python src/build_scores.py
 
 ```
 
@@ -220,7 +220,7 @@ streamlit run app.py
 
 
 
-\## Output
+## Output
 
 
 
@@ -230,7 +230,7 @@ The scoring pipeline creates:
 
 ```text
 
-data/processed/sec\_capacity\_scores.csv
+data/processed/sec_capacity_scores.csv
 
 ```
 
@@ -240,23 +240,23 @@ The dashboard displays:
 
 
 
-\* Ranked wealth signals
+* Ranked wealth signals
 
-\* Individual/entity filters
+* Individual/entity filters
 
-\* Company and ticker search
+* Company and ticker search
 
-\* Capacity tiers
+* Capacity tiers
 
-\* Transaction values
+* Transaction values
 
-\* Role scores
+* Role scores
 
-\* Explanation for why each record surfaced
+* Explanation for why each record surfaced
 
 
 
-\## Important Limitations
+## Important Limitations
 
 
 
@@ -268,21 +268,21 @@ It does not capture:
 
 
 
-\* Private company ownership
+* Private company ownership
 
-\* Real estate wealth
+* Real estate wealth
 
-\* Inherited wealth
+* Inherited wealth
 
-\* Private investments
+* Private investments
 
-\* Full portfolio value
+* Full portfolio value
 
-\* Education or school affiliation
+* Education or school affiliation
 
-\* Philanthropic affinity
+* Philanthropic affinity
 
-\* Actual giving likelihood
+* Actual giving likelihood
 
 
 
@@ -290,7 +290,7 @@ SEC filings are only one public wealth signal. A high score should be interprete
 
 
 
-\## Ethical Use
+## Ethical Use
 
 
 
@@ -302,21 +302,21 @@ It should not be used for:
 
 
 
-\* Credit decisions
+* Credit decisions
 
-\* Housing decisions
+* Housing decisions
 
-\* Employment decisions
+* Employment decisions
 
-\* Insurance decisions
+* Insurance decisions
 
-\* Eligibility screening
+* Eligibility screening
 
-\* Any consumer decision-making purpose
+* Any consumer decision-making purpose
 
 
 
-\## Future Improvements
+## Future Improvements
 
 
 
@@ -324,27 +324,27 @@ Potential next steps:
 
 
 
-\* Store historical SEC records in SQLite
+* Store historical SEC records in SQLite
 
-\* Automatically ingest new quarterly SEC files
+* Automatically ingest new quarterly SEC files
 
-\* Add historical trend analysis by person and company
+* Add historical trend analysis by person and company
 
-\* Add real estate enrichment
+* Add real estate enrichment
 
-\* Add IRS 990-PF/private foundation signals
+* Add IRS 990-PF/private foundation signals
 
-\* Add FEC political giving signals
+* Add FEC political giving signals
 
-\* Add confidence scoring
+* Add confidence scoring
 
-\* Add charts and summary analytics
+* Add charts and summary analytics
 
-\* Add a methodology page inside the app
+* Add a methodology page inside the app
 
 
 
-\## Project Status
+## Project Status
 
 
 
